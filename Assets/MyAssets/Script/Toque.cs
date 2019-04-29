@@ -9,8 +9,13 @@ public class Toque : MonoBehaviour
 
     public GameObject[] joias = new GameObject[12];
 
+    public AudioClip[] sons = new AudioClip[6];
+
+    private AudioSource output;
+
     private void Start()
     {
+        output = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -34,6 +39,12 @@ public class Toque : MonoBehaviour
                 joias[0].gameObject.SetActive(false);
                 joias[1].gameObject.SetActive(true);
             }
+        }
+
+        if (joias[0].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[0];
+            output.Play();
         }
 
         #endregion Space
@@ -67,12 +78,24 @@ public class Toque : MonoBehaviour
             Roda.velocidade = 50;
         }
 
+        if (joias[2].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[1];
+            output.Play();
+        }
+
         #endregion Time
 
         #region Soul
 
         if (Input.GetMouseButtonDown(0) && joias[4].gameObject.GetComponent<Collider>().enabled)
         {
+        }
+
+        if (joias[4].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[2];
+            output.Play();
         }
 
         #endregion Soul
@@ -95,6 +118,12 @@ public class Toque : MonoBehaviour
             joias[6].transform.Translate(Vector3.back);
         }
 
+        if (joias[6].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[3];
+            output.Play();
+        }
+
         #endregion Reality
 
         #region Power
@@ -113,6 +142,12 @@ public class Toque : MonoBehaviour
             }
         }
 
+        if (joias[8].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[4];
+            output.Play();
+        }
+
         #endregion Power
 
         #region Mind
@@ -129,6 +164,12 @@ public class Toque : MonoBehaviour
                 joias[10].gameObject.SetActive(false);
                 joias[11].gameObject.SetActive(true);
             }
+        }
+
+        if (joias[10].gameObject.GetComponent<Collider>().enabled)
+        {
+            output.clip = sons[5];
+            output.Play();
         }
 
         #endregion Mind
